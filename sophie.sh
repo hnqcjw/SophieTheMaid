@@ -9,7 +9,7 @@ elif [[ "$PROMPT" == *"how are you"* ]]; then
 	echo "I'm good!"
 elif [[ "$PROMPT" == *"can you open "* ]]; then
 	PROMPT=$(echo "$PROMPT" | sed 's/can\ you\ open\ //g')
-	open -a "$PROMPT" # xdg-open "$PROMPT" For Linux
+	xdg-open "$PROMPT" For Linux
 	echo "Sure thing!"
 else
 	echo "I don't know, but I looked it up, and you can figure out here!"

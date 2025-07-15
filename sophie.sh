@@ -28,10 +28,10 @@ PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 		PROMPT=$(echo "$PROMPT" | sed 's/can\ you\ run\ //g')
 		$PROMPT
 	elif [[ "$PROMPT" == *"can you install"* ]]; then
-		echo "Sure! You'll probably have to enter password to run sudo apt-get"
+		echo "Sure! You'll probably have to enter password to run sudo apt install"
 		echo
 		PROMPT=$(echo "$PROMPT" | sed 's/can\ you\ install\ //g')
-		sudo apt-get $PROMPT
+		sudo apt install $PROMPT
 	elif [[ "$PROMPT" == *"can you show me your face"* ]]; then
 		echo "((((()))))"
 		echo "(  0   0 ) ))"
@@ -75,6 +75,10 @@ PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 		echo "You're at $(pwd)"
 	elif [[ "$PROMPT" == *"siri"* ]] || [[ "$PROMPT" == *"alexa"* ]] || [[ "$PROMPT" == *"google assistant"* ]] || [[ "$PROMPT" == *"copilot"* ]] || [[ "$PROMPT" == *"chatgpt"* ]]; then
 		echo "I love my fellow chatbots and assistants."
+	elif [[ "$PROMPT" == *"modify"* ]]; then
+		echo "You want to modify me? Sure! Press CTRL+C to get out of the editor."
+		sleep 0.5
+		nano sophie.sh
 	else
 		echo "I’m not sure what that means, but here's what I found on the web!"	
 		echo "https://www.google.com/search?q=$PROMPT&oq=a&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGD0yBggDEEUYPTIGCAQQRRg8MgYIBRAFGEAyBggGEAUYQDIGCAcQBRhA0gEIMjI4NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROMPT=""
-read -p "-> " PROMPT
+read -p "-> " PROMPT # Prompts user
 PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 	if [[ "$PROMPT" == "hi" ]] || [[ "$PROMPT" == *"hey"* ]] ||  [[ "$PROMPT" == *"hello"* ]] || [[  "$PROMPT" == "hi!" ]]; then
 		echo "Hi $USER!"
@@ -9,11 +9,13 @@ PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 		echo "I'm good!"
 	elif [[ "$PROMPT" == *"can you open "* ]]; then
 		PROMPT=$(echo "$PROMPT" | sed 's/can\ you\ open\ //g')
-		xdg-open "$PROMPT"
+		xdg-open "$PROMPT" # exclusive to Debian-based linux systems
 		echo "Sure thing, $USER! Opening $PROMPT..."
+	elif [[ "$PROMPT" == *"made by"* ]]; then
+		echo "I was made by hnqcjw, you can find him on GitHub!"
 	elif [[ "$PROMPT" == "bye" ]] || [[ "$PROMPT" == "gtg" ]]; then
 		echo "Okay, bye $USER!"
-		exit
+		exit 0
 	elif [[ "$PROMPT" == *"joke"* ]]; then
 		echo "Why can a frog jump higher than the Burj Khalifa? BECAUSE THE BURJ KHAlIFA CAN'T JUMP AHAHAHA wait why didnt you laugh"
 	elif [[ "$PROMPT" == *"name"* ]]; then
@@ -44,10 +46,10 @@ PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 	elif [[ "$PROMPT" == *"can you delete"* ]]; then
 		PROMPT=$(echo "$PROMPT" | sed 's/can\ you\ delete\ //g')
 		CONF=""
-		read -p "Are you sure you want to delete '$PROMPT'?" CONF
+		read -p "Are you sure you want to delete '$PROMPT'?" CONF # Adds Confirmation before deletion
 		if [[ $CONF == "y" ]]; then
 			echo "Okay!"
-			rm -rf $PROMPT
+			rm -rf $PROMPT # Scary!
 		else
 			echo "I guess you changed your mind. That's okay!"
 		fi
@@ -79,8 +81,11 @@ PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 		echo "You want to modify me? Sure! Press CTRL+C to get out of the editor."
 		sleep 0.5
 		nano sophie.sh
+	elif [[ "$PROMPT" == *"send me to" * ]]
+		PROMPT=$(echo "$PROMPT" | sed 's/send\ me\ to\ //g')
+		cd $PROMPT
 	else
-		echo "I’m not sure what that means, but here's what I found on the web!"	
+		echo "No one's ever said that to me, so I searched it up!"	
 		echo "https://www.google.com/search?q=$PROMPT&oq=a&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGD0yBggDEEUYPTIGCAQQRRg8MgYIBRAFGEAyBggGEAUYQDIGCAcQBRhA0gEIMjI4NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
 	fi
 ./sophie.sh

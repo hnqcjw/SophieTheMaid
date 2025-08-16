@@ -81,7 +81,7 @@ PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 		echo "You want to modify me? Sure! Press CTRL+C to get out of the editor."
 		sleep 0.5
 		nano sophie.sh
-	elif [[ "$PROMPT" == *"send me to" * ]]
+	elif [[ "$PROMPT" == *"send me to"* ]]; then
 		PROMPT=$(echo "$PROMPT" | sed 's/send\ me\ to\ //g')
 		cd $PROMPT
 	else

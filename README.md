@@ -6,3 +6,6 @@ So one day, I was just thinking about things that other operating systems have t
 Then I thought Linux deserved its own, so I made one!
 
 Anyway, you can talk to it and most of the time it'll just search it up, but I'm planning to add more features!
+
+## Installation
+Unzip the file and run the install.sh script!

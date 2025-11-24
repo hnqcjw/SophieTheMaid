@@ -88,4 +88,4 @@ PROMPT=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]')
 		echo "No one's ever said that to me, so I searched it up!"	
 		echo "https://www.google.com/search?q=$PROMPT&oq=a&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGD0yBggDEEUYPTIGCAQQRRg8MgYIBRAFGEAyBggGEAUYQDIGCAcQBRhA0gEIMjI4NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
 	fi
-./sophie.sh
+sophie
